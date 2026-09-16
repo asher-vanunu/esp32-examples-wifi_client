@@ -11,6 +11,6 @@ void setupMQTT();
 void handleMQTT();
 
 // Publish telemetry/sensor data
-void publishTelemetry();
+void publishPumpTelemetry(bool isRunning, uint16_t powerW, uint16_t flowM3H, float energyKWh);
 
 #endif

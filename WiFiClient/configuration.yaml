@@ -1,0 +1,66 @@
+mqtt:
+  # מתג הפעלה/כיבוי ראשי של המשאבה
+  switch:
+    - name: "Pool Pump Power"
+      unique_id: pool_pump_power_switch
+      state_topic: "pool/pump/state"
+      command_topic: "pool/pump/set_state"
+      payload_on: "ON"
+      payload_off: "OFF"
+      availability_topic: "pool/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      icon: "mdi:water-pump"
+
+  # בורר ספיקה (Number Input) עבור ספיקת המים (8-25 מק"ש)
+  number:
+    - name: "Pool Pump Flow Rate"
+      unique_id: pool_pump_flow_rate_input
+      state_topic: "pool/pump/flow_m3h"
+      command_topic: "pool/pump/set_flow"
+      min: 8
+      max: 25
+      step: 1
+      unit_of_measurement: "m³/h"
+      mode: slider
+      availability_topic: "pool/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      icon: "mdi:speedometer"
+
+  # חיישני ניטור וטלמטריה
+  sensor:
+    # צריכת הספק נתונה בוואט
+    - name: "Pool Pump Power Consumption"
+      unique_id: pool_pump_power_watts
+      state_topic: "pool/pump/power_watts"
+      unit_of_measurement: "W"
+      device_class: power
+      state_class: measurement
+      availability_topic: "pool/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      icon: "mdi:flash"
+
+    # ספיקה נוכחית מק"ש
+    - name: "Pool Pump Actual Flow"
+      unique_id: pool_pump_actual_flow
+      state_topic: "pool/pump/flow_m3h"
+      unit_of_measurement: "m³/h"
+      state_class: measurement
+      availability_topic: "pool/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      icon: "mdi:waves"
+
+    # צריכת אנרגיה מצטברת בקילואט-שעה (מתאים גם ל-Energy Dashboard)
+    - name: "Pool Pump Total Energy"
+      unique_id: pool_pump_total_energy
+      state_topic: "pool/pump/energy_kwh"
+      unit_of_measurement: "kWh"
+      device_class: energy
+      state_class: total_increasing
+      availability_topic: "pool/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      icon: "mdi:counter"

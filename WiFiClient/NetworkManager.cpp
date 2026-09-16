@@ -21,6 +21,16 @@ static void configureWiFiCountry() {
 }
 
 void setupNetwork() {
+  WiFi.persistent(false); // מונע שחיקה של זיכרון ה-Flash
+  WiFi.disconnect(true, true); // ניתוק וניקוי הגדרות Wi-Fi מזיכרון ה-RAM
+  delay(200);
+
+  // 2. הגדרת מצב תחנה (Station) בלבד
+  WiFi.mode(WIFI_STA);
+
+  // 3. ביטול מנגנון חיסכון בחשמל (Sleep Mode) - קריטי לראוטרים ביתיים!
+  WiFi.setSleep(false);
+  
   configureWiFiCountry();
   wm.setConfigPortalTimeout(180);
 
@@ -51,4 +61,9 @@ void checkResetButton() {
   }
 
   buttonStatePrevious = buttonStateCurrent;
+}
+
+void resetWiFiSettings() {
+  wm.resetSettings();
+  Serial.println("Wi-Fi settings reset manually via code.");
 }

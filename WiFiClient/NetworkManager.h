@@ -10,5 +10,5 @@ void setupNetwork();
 
 // Check if the BOOT button is held for resetting Wi-Fi settings
 void checkResetButton();
-
+void resetWiFiSettings();
 #endif
