@@ -14,9 +14,9 @@
 #define BOOT_BUTTON_PIN  0
 
 // --- Aquagem Modbus RS485 Settings ---
-#define RS485_RX_PIN     16
-#define RS485_TX_PIN     17
-#define RS485_DIR_PIN    4      // Set to -1 if using Auto-Direction module
+#define RS485_RX_PIN     14     // פין RO במודול MAX485
+#define RS485_TX_PIN     13     // פין DI במודול MAX485
+#define RS485_DIR_PIN    12     // פינים DE + RE מחוברים יחד
 #define MODBUS_SLAVE_ID  0xAA   // Aquagem default slave address (170 in decimal)
 #define MODBUS_BAUDRATE  9600
 
