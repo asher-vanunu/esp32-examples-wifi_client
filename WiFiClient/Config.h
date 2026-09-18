@@ -27,6 +27,12 @@
 #define REG_READ_FLOW    0x07D5 // Actual Flow rate m3/h
 #define REG_READ_ENERGY  0x07D7 // kWh (value / 1000)
 
+// --- Arduino Nano Serial UART Settings ---
+#define NANO_UART_NUM    1
+#define NANO_RX_PIN      15     // GPIO15 (connected to Nano TX / D1)
+#define NANO_TX_PIN      2      // GPIO2 (connected to Nano RX / D0 via voltage divider)
+#define NANO_BAUDRATE    19200
+
 #define REG_WRITE_CAP    0x0BB9 // Capacity (30-120%, 10 = OFF)
 #define REG_WRITE_FLOW   0x0BBD // Flow rate m3/h (8-25 m3/h for 1.05kW, 0 = OFF)
 

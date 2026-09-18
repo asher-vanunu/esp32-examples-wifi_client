@@ -13,4 +13,7 @@ void handleMQTT();
 // Publish telemetry/sensor data
 void publishPumpTelemetry(bool isRunning, uint16_t powerW, uint16_t flowM3H, float energyKWh);
 
+// Heating controller (Arduino Nano) telemetry
+void publishNanoTelemetry(float tCol, float tSt, float tFlw, bool pumpOn, int state);
+
 #endif
